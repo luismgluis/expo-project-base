@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "ecommerce-expo",
+    "slug": "ecommerce-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.luismgluis.ecommerceexpo"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": ["ts", "tsx", "scss"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "entryPoint": "./App.tsx"
+    },
+
+    "extra": {
+      "eas": {
+        "projectId": "7827014c-38a2-4343-bccd-639d8dbe6754"
+      }
+    }
+  }
+}
