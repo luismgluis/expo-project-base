@@ -15,7 +15,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
     <View
     // style={styles.HomeScreen__container}
     >
-      <Text>Homwwssse</Text>
+      <Text>Home</Text>
       <Image
         style={{ width: 50, height: 50 }}
         source={{ uri: "https://ui-avatars.com/api/?name=John+Doe" }}
