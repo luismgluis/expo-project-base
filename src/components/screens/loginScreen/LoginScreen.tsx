@@ -1,7 +1,10 @@
 import React, { useCallback, useState } from "react";
-import { Text, TextInput, View } from "react-native";
+import { Text, View } from "react-native";
+
 import app from "../../../api/app";
-import Button from "../../ui/button/Button";
+import UserModel from "../../../models/UserModel";
+import Button from "../../ui/base/button/Button";
+import TextInput from "../../ui/base/textInput/TextInput";
 type LoginScreenProps = {}
 const LoginScreen: React.FC<LoginScreenProps> = ({ }) => {
   const [form, setForm] = useState({
@@ -17,13 +20,15 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ }) => {
   return <View>
     <Text>Usuario</Text>
     <TextInput
-      onChangeText={val => setForm(old => ({ ...old, username: val }))}
-      placeholder="John wick"></TextInput>
+    // onChangeText={val => setForm(old => ({ ...old, username: val }))}
+    // placeholder="John wick"
+    ></TextInput>
     <Text>Contraseña</Text>
     <TextInput
-      onChangeText={val => setForm(old => ({ ...old, password: val }))} placeholder="John wick"></TextInput>
-    <Button onPress={handleLogin}>
-      INICIAR2
+    // onChangeText={val => setForm(old => ({ ...old, password: val }))} placeholder="John wick"
+    ></TextInput>
+    <Button onPress={() => null} >
+      Hola
     </Button>
   </View>
 }

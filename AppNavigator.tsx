@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Login">
       {AppRoutes.map((route, index) => (
         <Stack.Screen
           key={index}

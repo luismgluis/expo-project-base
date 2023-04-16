@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useCallback } from "react";
 import { Image, Text, View } from "react-native";
 
-import Button from "../../ui/button/Button";
+import Button from "../../ui/base/button/Button";
 // import styles from "./HomeScreen.scss";
 
 type HomeScreenProps = {};
