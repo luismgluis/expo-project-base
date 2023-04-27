@@ -3,8 +3,8 @@ export default class ProductCategory {
   categoryName?: string;
   idBusiness?: string;
   constructor(data: any = null) {
-    this.id = data?.id || "";
-    this.categoryName = data?.categoryName || "";
-    this.idBusiness = data?.idBusiness || "";
+    this.id = data?.id || '';
+    this.categoryName = data?.categoryName || '';
+    this.idBusiness = data?.idBusiness || '';
   }
 }

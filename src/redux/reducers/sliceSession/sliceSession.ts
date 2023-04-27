@@ -1,15 +1,15 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
-import UserModel from "./../../../models/UserModel";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import UserModel from './../../../models/UserModel';
 type CurrentUserModelNull = UserModel | null;
 
 const sliceSession = createSlice({
-  name: "session",
+  name: 'session',
   initialState: {
     loading: false,
     me: null as CurrentUserModelNull,
     currentBusiness: null as CurrentUserModelNull,
-    nickNameCurrentBusiness: "",
+    nickNameCurrentBusiness: '',
     loadingBusiness: true,
   },
   reducers: {

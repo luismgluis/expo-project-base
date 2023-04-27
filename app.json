@@ -24,13 +24,11 @@
     },
     "packagerOpts": {
       "config": "metro.config.js",
-      "sourceExts": ["ts", "tsx", "scss"],
-      "port": 3005
+      "sourceExts": ["js", "jsx", "ts", "tsx", "scss"]
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "bundler": "webpack",
-      "entryPoint": "./App.tsx"
+      "bundler": "metro"
     },
 
     "extra": {

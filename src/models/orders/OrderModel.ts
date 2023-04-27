@@ -1,12 +1,12 @@
-import utils from "../../libs/utils/utils";
-import ProductModel from "../products/ProductModel";
+import utils from '../../libs/utils/utils';
+import ProductModel from '../products/ProductModel';
 
-export const OrderDisplayState: Record<OrderBase["state"], string> = {
-  accept: "Aceptado",
-  complete: "Completado",
-  created: "Creado",
-  delivery: "Domicilio",
-  null: "Error",
+export const OrderDisplayState: Record<OrderBase['state'], string> = {
+  accept: 'Aceptado',
+  complete: 'Completado',
+  created: 'Creado',
+  delivery: 'Domicilio',
+  null: 'Error',
 };
 class OrderBase {
   id: string;
@@ -19,21 +19,21 @@ class OrderBase {
   idZone: string;
   creatorUid: string;
   deliveryPrice: number;
-  state: "created" | "accept" | "delivery" | "complete" | "null";
+  state: 'created' | 'accept' | 'delivery' | 'complete' | 'null';
 
   constructor(data: any = null) {
-    this.id = data?.id || "";
+    this.id = data?.id || '';
 
     this.removed = utils.parseBoolean(data?.removed);
     this.completed = utils.parseBoolean(data?.completed);
     this.creationDate = data?.creationDate || 0;
     this.completedDate = data?.completedDate || 0;
     this.completedTotalPrice = data?.completedTotalPrice || 0;
-    this.idBusiness = data?.idBusiness || "";
-    this.idZone = data?.idZone || "";
-    this.creatorUid = data?.creatorUid || "";
+    this.idBusiness = data?.idBusiness || '';
+    this.idZone = data?.idZone || '';
+    this.creatorUid = data?.creatorUid || '';
     this.deliveryPrice = data?.deliveryPrice || 0;
-    this.state = data?.state || "null";
+    this.state = data?.state || 'null';
   }
 }
 export default class OrderModel extends OrderBase {

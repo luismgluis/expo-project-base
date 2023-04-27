@@ -1,4 +1,4 @@
-import { getFirebaseDate } from "./firebaseUtils";
+import { getFirebaseDate } from './firebaseUtils';
 
 class Dates {
   constructor() {
@@ -15,37 +15,37 @@ class Dates {
   ): string {
     const a = new Date(date);
     const months = [
-      "Ene",
-      "Feb",
-      "Mar",
-      "Abr",
-      "May",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dic",
+      'Ene',
+      'Feb',
+      'Mar',
+      'Abr',
+      'May',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dic',
     ];
     const year = a.getFullYear();
     const MONTH = months[a.getMonth()];
     let month = `${a.getMonth() + 1}`;
     const day = a.getDate();
-    const hour = a.getHours().toString().padStart(2, "0");
-    const min = a.getMinutes().toString().padStart(2, "0");
-    const sec = a.getSeconds().toString().padStart(2, "0");
+    const hour = a.getHours().toString().padStart(2, '0');
+    const min = a.getMinutes().toString().padStart(2, '0');
+    const sec = a.getSeconds().toString().padStart(2, '0');
 
     if (withMonthName) {
       month = MONTH;
     }
 
-    let time = day + "/" + month + "/" + year;
+    let time = day + '/' + month + '/' + year;
     if (withHour) {
-      time += " " + hour + ":" + min;
+      time += ' ' + hour + ':' + min;
     }
     if (withSec) {
-      time += "." + sec;
+      time += '.' + sec;
     }
     return time;
   }
@@ -82,7 +82,7 @@ class Dates {
       hours: 0,
       minutes: 0,
       seconds: 0,
-      text: "",
+      text: '',
       distance: distance,
     };
     while (distance > 0) {
@@ -108,7 +108,7 @@ class Dates {
       res.text = `${res.minutes}m`;
     }
 
-    if (res.text === "") {
+    if (res.text === '') {
       res.text = `${res.seconds}s`;
     } else if (withSeconds) res.text += ` ${res.seconds}`;
 
@@ -125,8 +125,8 @@ class Dates {
   }
   dateStringInputToDateUnix(str: string) {
     console.log(str);
-    if (str === "") return null;
-    const arr = str.split("-");
+    if (str === '') return null;
+    const arr = str.split('-');
     const date = new Date(Number(arr[0]), Number(arr[1]) - 1, Number(arr[2]));
     console.log(date);
     return this.dateToUnix(date);
@@ -134,7 +134,7 @@ class Dates {
   dateStringInputToString(str: string) {
     const d = this.dateStringInputToDateUnix(str);
     if (d) return this.unixToString(d);
-    return "";
+    return '';
   }
   dateNow(): Date {
     return new Date();
@@ -149,11 +149,11 @@ class Dates {
   dateToInput() {
     const a = this.dateNow().toISOString().substr(0, 10);
     let s = this.dateNow()
-      .toLocaleString("en-US", {
-        timeZone: "America/Bogota",
+      .toLocaleString('en-US', {
+        timeZone: 'America/Bogota',
       })
       .substr(0, 10);
-    if (s.includes(",")) s = s.split(",")[0];
+    if (s.includes(',')) s = s.split(',')[0];
     console.log(s, a);
     const d = this.dateNow();
     const m = d.getMonth() + 1 <= 9 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
@@ -167,7 +167,7 @@ class Dates {
   }
   secsToTime(valTime: number): string {
     if (valTime) {
-      let secs = parseInt("" + valTime / 1000, 10);
+      let secs = parseInt('' + valTime / 1000, 10);
       const mins = (() => {
         if (secs > 59) {
           secs -= 59;
@@ -175,9 +175,9 @@ class Dates {
         }
         return 0;
       })();
-      return `${mins > 9 ? mins : "0" + mins}:${secs > 9 ? secs : "0" + secs}`;
+      return `${mins > 9 ? mins : '0' + mins}:${secs > 9 ? secs : '0' + secs}`;
     }
-    return "00:00";
+    return '00:00';
   }
 }
 export default Dates;

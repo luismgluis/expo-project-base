@@ -1,12 +1,12 @@
-import { View, Text, Button } from "react-native";
-import React, { FC, useCallback } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { FC, useCallback } from 'react';
+import { Button, Text, View } from 'react-native';
+import useNavigate from '../../../hooks/useNavigate/useNavigate';
 type ConfigScreenProps = {};
 const ConfigScreen: FC<ConfigScreenProps> = () => {
-  const navigation = useNavigation();
+  const { goTo } = useNavigate();
   const handleClick = useCallback(() => {
-    (navigation as any).navigate("Home");
-  }, [navigation]);
+    goTo('Home');
+  }, [goTo]);
   return (
     <View>
       <Text>ConfigScreen</Text>

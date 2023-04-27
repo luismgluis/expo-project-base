@@ -1,5 +1,5 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 export type BottomSheetModalOption = {
   id?: string;
   dark?: boolean;
@@ -12,7 +12,7 @@ type BottomSheetAlertType = {
   options?: BottomSheetModalOption;
 };
 const sliceBottomSheetModalV2 = createSlice({
-  name: "sliceBottomSheetModalV2",
+  name: 'sliceBottomSheetModalV2',
   initialState: {
     open: false,
     allAlerts: [] as BottomSheetAlertType[],

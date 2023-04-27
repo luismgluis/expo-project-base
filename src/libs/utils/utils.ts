@@ -1,8 +1,8 @@
-import Dates from "./Dates";
-import GeneralUtils from "./GeneralUtils";
-import Objects from "./Objects";
+import Dates from './Dates';
+import GeneralUtils from './GeneralUtils';
+import Objects from './Objects';
 
-const TAG = "UTILS";
+const TAG = 'UTILS';
 export interface fileInfo {
   fileName: string;
   path: string;
@@ -42,11 +42,11 @@ class utils extends GeneralUtils {
   }
   getNameLastName(name: string) {
     const obj = {
-      name: "",
-      lastName: "",
+      name: '',
+      lastName: '',
     };
-    if (name.includes(" ")) {
-      const ss = name.split(" ");
+    if (name.includes(' ')) {
+      const ss = name.split(' ');
       obj.name = ss[0];
       obj.lastName = ss[1];
       return obj;
@@ -55,13 +55,13 @@ class utils extends GeneralUtils {
     return obj;
   }
   getListSeparator_bis() {
-    const list = ["a", "b"];
+    const list = ['a', 'b'];
     const s = list.toLocaleString().charAt(1);
     return s;
   }
   getRegexTextCoincidence(text: string) {
-    const words = [...text.split(" ")];
-    return new RegExp(words.join("|"));
+    const words = [...text.split(' ')];
+    return new RegExp(words.join('|'));
   }
   includes(str: string, value: string) {
     if (str.indexOf(value) !== -1) {
@@ -69,7 +69,6 @@ class utils extends GeneralUtils {
     }
     return false;
   }
-
 }
 
 export default new utils();

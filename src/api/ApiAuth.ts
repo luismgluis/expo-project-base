@@ -1,25 +1,24 @@
+import getApi, { onUploadProgress } from './api';
 
-import getApi, { onUploadProgress } from "./api";
+export const getAuthCurrentToken = () => {};
 
-export const getAuthCurrentToken = () => { }
-
-export const setAuthCurrentToken = (token: string) => {
-
-}
-
+export const setAuthCurrentToken = (token: string) => {};
 
 export default class ApiAuth {
-  constructor() { }
+  constructor() {}
   async register(user: UserModel) {
-    return getApi().post("/auth/register", user).then((res) => {
-      return new UserModel(res.data.data);
-    }).catch((err) => {
-      console.log("err", err);
-    })
+    return getApi()
+      .post('/auth/register', user)
+      .then((res) => {
+        return new UserModel(res.data.data);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
   }
   async updateMe(uid: string, data: any) {
     return getApi()
-      .put("/users/updateme", {
+      .put('/users/updateme', {
         uid,
         ...data,
       })
@@ -38,11 +37,11 @@ export default class ApiAuth {
     onProgress: (val: number) => void
   ): Promise<UserModel> {
     const formData = new FormData();
-    formData.append("uid", uid);
-    formData.append("file", file);
+    formData.append('uid', uid);
+    formData.append('file', file);
 
     return getApi({ appjson: false })
-      .put("/users/updateme/pic", formData, {
+      .put('/users/updateme/pic', formData, {
         onUploadProgress: onUploadProgress((val) => onProgress(val)),
       })
       .then((res) => {
@@ -56,5 +55,4 @@ export default class ApiAuth {
         return null;
       });
   }
-
 }

@@ -1,9 +1,9 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
-import OrderModel from "../../../models/orders/OrderModel";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import OrderModel from '../../../models/orders/OrderModel';
 
 const sliceOrders = createSlice({
-  name: "orders",
+  name: 'orders',
   initialState: {
     loading: false,
     all: [] as OrderModel[],

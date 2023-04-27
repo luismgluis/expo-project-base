@@ -1,28 +1,24 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useCallback } from "react";
-import { Image, Text, View } from "react-native";
+import React, { useCallback } from 'react';
+import { Image, Text, View } from 'react-native';
 
-import Button from "../../ui/base/button/Button";
-// import styles from "./HomeScreen.scss";
+import useNavigate from '../../../hooks/useNavigate/useNavigate';
+import Button from '../../ui/base/button/Button';
+import homeStyles from './HomeScreen.scss';
 
 type HomeScreenProps = {};
 const HomeScreen: React.FC<HomeScreenProps> = () => {
-  const navigation = useNavigation();
+  const { goTo } = useNavigate();
   const handleClick = useCallback(() => {
-    (navigation as any).navigate("Config");
-  }, [navigation]);
+    goTo('Config');
+  }, [goTo]);
   return (
-    <View
-    // style={styles.HomeScreen__container}
-    >
-      <Text>Home</Text>
+    <View>
+      <Text style={homeStyles.title}>Home</Text>
       <Image
         style={{ width: 50, height: 50 }}
-        source={{ uri: "https://ui-avatars.com/api/?name=John+Doe" }}
+        source={{ uri: 'https://ui-avatars.com/api/?name=John+Doe' }}
       ></Image>
-      <Button onPress={handleClick}>
-        Go to Configgg
-      </Button>
+      <Button onPress={handleClick}>Go to Config</Button>
     </View>
   );
 };

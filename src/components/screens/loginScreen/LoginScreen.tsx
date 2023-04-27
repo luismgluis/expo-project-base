@@ -1,35 +1,41 @@
-import React, { useCallback, useState } from "react";
-import { Text, View } from "react-native";
+import React, { useCallback, useState } from 'react';
+import { View } from 'react-native';
 
-import app from "../../../api/app";
-import UserModel from "../../../models/UserModel";
-import Button from "../../ui/base/button/Button";
-import TextInput from "../../ui/base/textInput/TextInput";
-type LoginScreenProps = {}
-const LoginScreen: React.FC<LoginScreenProps> = ({ }) => {
+import useNavigate from '../../../hooks/useNavigate/useNavigate';
+import Button from '../../ui/base/button/Button';
+import TextInput from '../../ui/base/textInput/TextInput';
+type LoginScreenProps = {};
+const LoginScreen: React.FC<LoginScreenProps> = ({}) => {
+  const { goTo } = useNavigate();
   const [form, setForm] = useState({
-    username: "",
-    password: ""
-  })
+    username: '',
+    password: '',
+  });
   const handleLogin = useCallback(() => {
-    console.log("logueado", form);
-    const newUser = new UserModel(form);
-    app.api.apiAuth.register(newUser)
-  }, [form])
+    console.log('logueado', form);
+    // const newUser = new UserModel(form);
+    // app.api.apiAuth.register(newUser);
+    goTo('Home');
+  }, [form]);
 
-  return <View>
-    <Text>Usuario</Text>
-    <TextInput
-    // onChangeText={val => setForm(old => ({ ...old, username: val }))}
-    // placeholder="John wick"
-    ></TextInput>
-    <Text>Contraseña</Text>
-    <TextInput
-    // onChangeText={val => setForm(old => ({ ...old, password: val }))} placeholder="John wick"
-    ></TextInput>
-    <Button onPress={() => null} >
-      Hola
-    </Button>
-  </View>
-}
+  return (
+    <View style={{ padding: 20 }}>
+      <TextInput
+        label="Usuario"
+        onChangeText={(val) => setForm((old) => ({ ...old, username: val }))}
+        placeholder="wick@business.com"
+      ></TextInput>
+
+      <TextInput
+        label="Contraseña"
+        onChangeText={(val) => setForm((old) => ({ ...old, password: val }))}
+        placeholder="******"
+      />
+      <Button onPress={handleLogin}>Ingresar</Button>
+      <Button variant="text" onPress={() => goTo('Register')}>
+        Crear cuenta
+      </Button>
+    </View>
+  );
+};
 export default LoginScreen;

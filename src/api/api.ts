@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-import globalVars from "../libs/utils/globalVars";
-import ApiAuth, { getAuthCurrentToken, setAuthCurrentToken } from "./ApiAuth";
+import globalVars from '../libs/utils/globalVars';
+import ApiAuth, { getAuthCurrentToken, setAuthCurrentToken } from './ApiAuth';
 
 export interface ApiBase<T> {
   update?: (data: T | any) => Promise<T | T[]>;
@@ -15,8 +15,8 @@ export class ApiModel {
     this.apiAuth = new ApiAuth();
   }
 }
-const host = globalVars.BACKEND_HOST || "http://localhost";
-console.log("user host:", host);
+const host = globalVars.BACKEND_HOST || 'http://localhost';
+console.log('user host:', host);
 
 export const onUploadProgress = (onProgress: (val: number) => void) => {
   const handler = ({ loaded = 0, total = 0 }) => {
@@ -37,16 +37,17 @@ const getApi = (options: any = {}) => {
   // };
   // execute();
   const instanceAxios = axios.create({
-    baseURL: `${host}/api/v1`,
+    // baseURL: `${host}/api/v1`,
+    baseURL: `${host}`,
     headers: appjson
       ? {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      }
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        }
       : undefined,
   });
 
-  instanceAxios.defaults.headers.common.Authorization = "";
+  instanceAxios.defaults.headers.common.Authorization = '';
 
   instanceAxios.interceptors.request.use(
     (cfg: any) => {
@@ -68,16 +69,16 @@ const getApi = (options: any = {}) => {
       return response;
     },
     (error: any) => {
-      if ("response" in error) {
+      if ('response' in error) {
         if (error.response.status > 400) {
           if (error.response.status === 429) {
             console.log(error);
-            setAuthCurrentToken("");
+            setAuthCurrentToken('');
             // window.location.replace("/app/manyrequests");
             return Promise.reject(error);
           }
           if (error.response.status === 401) {
-            setAuthCurrentToken("");
+            setAuthCurrentToken('');
             // window.location.replace("/app/welcome");
             // window.location.replace("/");
             return Promise.reject(error);
@@ -86,9 +87,9 @@ const getApi = (options: any = {}) => {
             return Promise.reject(error);
           }
         }
-        if (error.response.data?.data?.name === "TokenExpiredError") {
-          console.log("RELOAD", error);
-          setAuthCurrentToken("");
+        if (error.response.data?.data?.name === 'TokenExpiredError') {
+          console.log('RELOAD', error);
+          setAuthCurrentToken('');
           // window.location.replace("/");
           return;
         }

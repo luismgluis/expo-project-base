@@ -1,4 +1,4 @@
-import { CreateSliceOptions, SliceCaseReducers } from "@reduxjs/toolkit";
+import { CreateSliceOptions, SliceCaseReducers } from '@reduxjs/toolkit';
 
 // THIS NOT WORK ON RN BCS LOCALSTORAGE IS ASYNC
 function persistenceInitialState<
@@ -6,7 +6,7 @@ function persistenceInitialState<
   CaseReducers extends SliceCaseReducers<State>,
   Name extends string = string
 >(options: CreateSliceOptions<State, CaseReducers, Name>) {
-  const local = null
+  const local = null;
   // localStorage.getItem(`persistence_redux_${options.name}`) || null;
   if (local) {
     const json = JSON.parse(local);

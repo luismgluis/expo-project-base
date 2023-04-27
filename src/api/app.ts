@@ -1,4 +1,4 @@
-import { ApiModel } from "./api";
+import { ApiModel } from './api';
 
 class App {
   api: ApiModel;
@@ -6,7 +6,7 @@ class App {
   constructor() {
     this.api = new ApiModel();
 
-    if (typeof App.instance === "object") {
+    if (typeof App.instance === 'object') {
       return App.instance;
     }
     App.instance = this;
